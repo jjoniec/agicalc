@@ -1,0 +1,140 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="css/surowica.css" />
+<link rel="stylesheet" type="text/css" href="css/mocz.css" />
+<link rel="stylesheet" type="text/css" href="css/submit.css" />
+<link rel="stylesheet" type="text/css" href="css/units.css" />
+<link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
+<script src="jquery/jquery-1.11.2.min.js"></script>
+<script src="jquery-ui/jquery-ui.min.js"></script>
+<script src="js/validation.js"></script> 
+<script src="js/calculation.js"></script> 
+</head>
+<body>
+<div class="form-title">
+<fieldset>
+<span class="title_span" id="title_span">
+	<h2>Hallo TRP World</h2>
+</span>
+<span class="config_button_span" id="config_button_span">
+	<button id="config_button">Konfiguracja</button>
+</span>
+</fieldset>
+</div>
+<form method="POST" onsubmit="return calculate()" id="trp_form">
+<div class="form-surowica" id="form-surowica">
+<fieldset><legend>Surowica</legend>
+	<label for="input_ps" id="label_ps">
+		<span id="label_for_input">P<sub>s</sub> <span class="required">*</span></span>
+		<input type="text" class="input-field" name="input_ps"  id="input_ps" value=""  onkeypress='validateDecimal(event, this)' onkeyup='validateValue(event, this)' onchange='validateData(event, this)'/>
+		<div class="unit-switch">
+		    <input type="checkbox" name="unit_switch_ps" class="unit-switch-checkbox-ps" id="unit_switch_ps" checked onclick='convert(event, this)'>
+			<label class="unit-switch-label" for="unit_switch_ps">
+			<span class="unit-switch-inner"></span>
+			<span class="unit-switch-switch-ps"></span>
+			</label>
+		</div>
+	</label>
+	<label for="input_cas">
+		<span id="label_for_input">Ca<sub>s</sub> <span class="required">*</span></span>
+		<input type="text" class="input-field" name="input_cas" id="input_cas" value="" onkeypress='validateDecimal(event, this)' onkeyup='validateValue(event, this)' onchange='validateData(event, this)'/>
+		<div class="unit-switch">
+		    <input type="checkbox" name="unit_switch_cas" class="unit-switch-checkbox-cas" id="unit_switch_cas" checked onclick='convert(event, this)'>
+			<label class="unit-switch-label" for="unit_switch_cas">
+			<span class="unit-switch-inner"></span>
+			<span class="unit-switch-switch-cas"></span>
+			</label>
+		</div>
+	</label>
+	<label for="input_krs">
+		<span id="label_for_input">Kr<sub>s</sub> <span class="required">*</span></span>
+		<input type="text" class="input-field" name="input_krs" id="input_krs" value="" onkeypress='validateDecimal(event, this)' onkeyup='validateValue(event, this)' onchange='validateData(event, this)'/>
+		<div class="unit-switch">
+			<input type="checkbox" name="unit_switch_krs" class="unit-switch-checkbox-krs" id="unit_switch_krs" checked onclick='convert(event, this)'>
+			<label class="unit-switch-label" for="unit_switch_krs">
+			<span class="unit-switch-inner"></span>
+			<span class="unit-switch-switch-krs"></span>
+			</label>
+		</div>
+	</label>
+</fieldset>
+</div>
+<div class="form-mocz">
+<fieldset><legend>Mocz</legend>
+	<label for="input_pm">
+		<span id="label_for_input">P<sub>m</sub> <span class="required">*</span></span>
+		<input type="text" class="input-field" name="input_pm" id="input_pm" value="" onkeypress='validateDecimal(event, this)' onkeyup='validateValue(event, this)' onchange='validateData(event, this)'/>
+		<div class="unit-switch">
+		    <input type="checkbox" name="unit_switch_pm" class="unit-switch-checkbox-pm" id="unit_switch_pm" checked onclick='convert(event, this)'>
+			<label class="unit-switch-label" for="unit_switch_pm">
+			<span class="unit-switch-inner"></span>
+			<span class="unit-switch-switch-pm"></span>
+			</label>
+		</div>
+	</label>
+	<label for="input_cam">
+		<span id="label_for_input">Ca<sub>m</sub> <span class="required">*</span></span>
+		<input type="text" class="input-field" name="input_cam" id="input_cam" value="" onkeypress='validateDecimal(event, this)' onkeyup='validateValue(event, this)' onchange='validateData(event, this)'/>
+		<div class="unit-switch">
+		    <input type="checkbox" name="unit_switch_cam" class="unit-switch-checkbox-cam" id="unit_switch_cam" checked onclick='convert(event, this)'>
+			<label class="unit-switch-label" for="unit_switch_cam">
+			<span class="unit-switch-inner"></span>
+			<span class="unit-switch-switch-cam"></span>
+			</label>
+		</div>
+	</label>
+	<label for="input_krm">
+		<span id="label_for_input">Kr<sub>m</sub> <span class="required">*</span></span>
+		<input type="text" class="input-field" name="input_krm" id="input_krm" value="" onkeypress='validateDecimal(event, this)' onkeyup='validateValue(event, this)' onchange='validateData(event, this)'/>
+		<div class="unit-switch">
+			<input type="checkbox" name="unit_switch_krm" class="unit-switch-checkbox-krm" id="unit_switch_krm" checked onclick='convert(event, this)'>
+			<label class="unit-switch-label" for="unit_switch_krm">
+			<span class="unit-switch-inner"></span>
+			<span class="unit-switch-switch-krm"></span>
+			</label>
+		</div>
+	</label>
+</fieldset>
+</div>
+<div class="form-submit" id="form-submit">
+<fieldset>
+<input type="submit" value="Policz" />
+<span id="result_trp"></span>
+<span id="result_cam_krm"></span>
+</fieldset>
+</div>
+</form>
+<div id="dialog" title="Dialog">
+	<p>This is jQuery-ui dialog will be used to communicate problems and errors to the user .</p>
+	<p>Java Script code will populate the content</p>
+</div>
+<script>
+$(function() {
+	$("#dialog").dialog({
+		autoOpen: false,
+		modal: true,
+		dialogClass: "no-close",
+		buttons: [
+			{
+				text: "Ok",
+				icons: {
+				primary: "ui-icon-heart"
+			},
+			click: function() {
+				$( this ).dialog( "close" );}
+			}
+		]		
+	});
+	
+	$( "#config_button" ).button({
+		icons: {
+			primary: "ui-icon-gear",
+		},
+		text: false
+    });
+});
+</script>
+</body>
+</html>
+
