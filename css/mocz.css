@@ -1,0 +1,89 @@
+.form-mocz{
+    max-width: 450px;
+	width: 450px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.form-mocz label{
+	float: left;
+    display:block;
+    margin-bottom: 0px;
+	border: 0px solid #FFFFFF; 
+	width: 100%;
+}
+
+.form-mocz fieldset{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin: 0px 0px 10px 0px;
+    border: 1px solid #E60000;
+    padding: 20px;
+    background: #FFD633;
+    box-shadow: inset 0px 0px 15px #85335C;
+    -moz-box-shadow: inset 0px 0px 15px #85335C;
+    -webkit-box-shadow: inset 0px 0px 15px #85335C;
+}
+
+.form-mocz fieldset legend{
+    color: #660033;
+    border-top: 1px solid #E60000;
+    border-left: 1px solid #E60000;
+    border-right: 1px solid #E60000;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    background: #FFCC00;
+    padding: 0px 8px 3px 8px;
+    box-shadow: -0px -1px 2px #85335C;
+    -moz-box-shadow:-0px -1px 2px #85335C;
+    -webkit-box-shadow:-0px -1px 2px #85335C;
+    font-weight: normal;
+    font-size: 12px;
+	text-shadow: 1px 1px 1px #ff0;
+}
+
+.form-mocz input[type=text],
+.form-mocz input[type=date],
+.form-mocz input[type=datetime],
+.form-mocz input[type=number],
+.form-mocz input[type=search],
+.form-mocz input[type=time],
+.form-mocz input[type=url],
+.form-mocz input[type=email],
+.form-mocz select, 
+.form-mocz textarea{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #FF9900;
+    outline: none;
+    color: black;
+    padding: 5px 8px 5px 8px;
+    box-shadow: inset 1px 1px 4px #FFD5E7;
+    -moz-box-shadow: inset 1px 1px 4px #FFD5E7;
+    -webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
+    background: #FFFFCC;
+    width:50%;
+	float: left;
+	text-align: right;
+}
+.form-mocz  input[type=submit],
+.form-mocz  input[type=button]{
+    background: #EB3B88;
+    border: 1px solid #C94A81;
+    padding: 5px 15px 5px 15px;
+    color: #FFCBE2;
+    box-shadow: inset -1px -1px 3px #FF62A7;
+    -moz-box-shadow: inset -1px -1px 3px #FF62A7;
+    -webkit-box-shadow: inset -1px -1px 3px #FF62A7;
+    border-radius: 3px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;    
+    font-weight: bold;
+}
+.required{
+    color:red;
+    font-weight:normal;
+}

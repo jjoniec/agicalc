@@ -1,0 +1,89 @@
+.form-surowica{
+    max-width: 450px;
+	width: 450px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.form-surowica label{
+	float: left;
+    display:block;
+    margin-bottom: 0px;
+	border: 0px solid #FFFFFF; 
+	width: 100%;
+}
+
+#label_for_input{
+    float: left;
+    width: 80px; 
+    color: #660033;
+    font-weight: bold;
+    font-size: 13px;
+	font-weight: bold;
+    text-shadow: 1px 1px 1px #ff0;
+	border: 0px solid #FFFFFF;
+	margin-bottom: 0px;	
+}
+
+
+.form-surowica fieldset{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin: 0px 0px 10px 0px;
+    border: 1px solid #E60000;
+    padding: 20px;
+    background: #FF704D;
+    box-shadow: inset 0px 0px 15px #85335C;
+    -moz-box-shadow: inset 0px 0px 15px #85335C;
+    -webkit-box-shadow: inset 0px 0px 15px #85335C;
+}
+
+.form-surowica fieldset legend{
+    color: #660033;
+    border-top: 1px solid #E60000;
+    border-left: 1px solid #E60000;
+    border-right: 1px solid #E60000;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    background: #FF704D;
+    padding: 0px 8px 3px 8px;
+    box-shadow: -0px -1px 2px #85335C;
+    -moz-box-shadow:-0px -1px 2px #85335C;
+    -webkit-box-shadow:-0px -1px 2px #85335C;
+    font-weight: normal;
+    font-size: 12px;
+	text-shadow: 1px 1px 1px #ff0;
+}
+
+.form-surowica input[type=text],
+.form-surowica input[type=date],
+.form-surowica input[type=datetime],
+.form-surowica input[type=number],
+.form-surowica input[type=search],
+.form-surowica input[type=time],
+.form-surowica input[type=url],
+.form-surowica input[type=email],
+.form-surowica select, 
+.form-surowica textarea{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #E60000;
+    outline: none;
+    color: black;
+    padding: 5px 8px 5px 8px;
+    box-shadow: inset 1px 1px 4px #FFD5E7;
+    -moz-box-shadow: inset 1px 1px 4px #FFD5E7;
+    -webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
+    background: #FFC49D;
+    width:50%;
+	float: left;
+	text-align: right;
+}
+
+.required{
+    color: #660033;
+    font-weight:normal;
+	border: 0px solid #FFFFFF;
+}
