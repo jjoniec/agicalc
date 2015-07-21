@@ -5,7 +5,9 @@
 <link rel="stylesheet" type="text/css" href="css/mocz.css" />
 <link rel="stylesheet" type="text/css" href="css/submit.css" />
 <link rel="stylesheet" type="text/css" href="css/units.css" />
-<link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="css/result.css" />
+<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.min.css">
 <script src="jquery/jquery-1.11.2.min.js"></script>
 <script src="jquery-ui/jquery-ui.min.js"></script>
 <script src="js/validation.js"></script> 
@@ -99,10 +101,14 @@
 </div>
 <div class="form-submit" id="form-submit">
 <fieldset>
-<input type="submit" value="Policz" />
-<span id="result_trp"></span>
-<span id="result_cam_krm"></span>
+<input type="submit" value="Policz" id="policz_button"/>
 </fieldset>
+</div>
+<div class="form-result" id="form_result">
+	<fieldset><legend>Wynik</legend>
+		<span id="result_trp">&nbsp;</span>
+		<span id="result_cam_krm">&nbsp;</span>
+	</fieldset>
 </div>
 </form>
 <div id="dialog" title="Dialog">
@@ -132,6 +138,24 @@ $(function() {
 			primary: "ui-icon-gear",
 		},
 		text: false
+    });
+
+    $("#policz_button").on("click", function(){
+        var animationName = 'animated fadeInLeft';
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $("#form_result").css('visibility', 'visible');
+        $("#form_result").addClass(animationName).one(animationEnd, function(){
+            $(this).removeClass(animationName);
+        });
+    });
+
+    $("#form_result").on("dblclick", function(){
+        var animationName = 'animated fadeOutLeft';
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $(this).addClass(animationName).one(animationEnd, function(){
+            $(this).removeClass(animationName);
+            $(this).css('visibility', 'hidden');
+        });
     });
 });
 </script>
