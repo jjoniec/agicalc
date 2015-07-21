@@ -97,6 +97,14 @@ function calculate()
 	var cam_krm_html = 'Ca<sub>m</sub> / Kr<sub>m</sub> = ' + cam_krm.toFixed(2);
 	var span_cam_krm = document.getElementById('result_cam_krm');
 	span_cam_krm.innerHTML = cam_krm_html;
+
+    // Show result panel
+	var animationName = 'animated fadeInLeft';
+	var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+	$("#form_result").css('visibility', 'visible');
+	$("#form_result").addClass(animationName).one(animationEnd, function(){
+		$(this).removeClass(animationName);
+	});
 	
 	// Cancel form submission
 	return false;

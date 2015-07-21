@@ -140,15 +140,6 @@ $(function() {
 		text: false
     });
 
-    $("#policz_button").on("click", function(){
-        var animationName = 'animated fadeInLeft';
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        $("#form_result").css('visibility', 'visible');
-        $("#form_result").addClass(animationName).one(animationEnd, function(){
-            $(this).removeClass(animationName);
-        });
-    });
-
     $("#form_result").on("dblclick", function(){
         var animationName = 'animated fadeOutLeft';
         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';

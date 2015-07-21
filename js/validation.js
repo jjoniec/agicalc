@@ -4,8 +4,8 @@ function validateDecimal(e, obj)
 {
 	var pos = getCaretPosition(obj);
 	var val = obj.value;
-	var dot_at = val.indexOf('.')
-	var zero_at = val.indexOf('0')
+	var dot_at = val.indexOf('.');
+	var zero_at = val.indexOf('0');
 	
 	// this is to allow backspace
     if ([e.keyCode || e.which] == 8) 
@@ -104,8 +104,8 @@ function validateValue(event, obj)
 {
 	var pos = getCaretPosition(obj);
 	var val = obj.value;
-	var dot_at = val.indexOf('.')
-	var zero_at = val.indexOf('0')
+	var dot_at = val.indexOf('.');
+	var zero_at = val.indexOf('0');
 	
 	if (dot_at == 0)
 	{
