@@ -1,6 +1,13 @@
 // Calcium		mg/dL *	0.25 = mmol/L
 // Creatinine 	mg/dL * 0.0884 = mmol/L
 // Phosphorus 	mg/dL 	0.323 = mmol/L
+var CALCIUM_TO_SI    = 0.2500;
+var CREATININE_TO_SI = 0.0884;
+var PHOSPHORUS_TO_SI = 0.3230;
+
+var BORDER_INVALID = "3px solid #ff0000";
+var BORDER_VALID = "1px solid #ff0000";
+
 function convert(event, obj)
 {
 	var textField = getTextFieldToUpdate(obj);
@@ -15,15 +22,15 @@ function getConversionFactor(obj)
 	var conversionFactor = NaN;
 	if ((obj.id == 'unit_switch_ps') || (obj.id == 'unit_switch_pm'))
 	{
-		conversionFactor = 0.3230;
+		conversionFactor = PHOSPHORUS_TO_SI;
 	}
 	else if ((obj.id == 'unit_switch_cas') || (obj.id == 'unit_switch_cam'))
 	{
-		conversionFactor = 0.2500;
+		conversionFactor = CALCIUM_TO_SI;
 	}
 	else if ((obj.id == 'unit_switch_krs') || (obj.id == 'unit_switch_krm'))
 	{
-		conversionFactor = 0.0884;
+		conversionFactor = CREATININE_TO_SI;
 	}
 	
 	if (obj.checked) 
@@ -99,13 +106,8 @@ function calculate()
 	span_cam_krm.innerHTML = cam_krm_html;
 
     // Show result panel
-	var animationName = 'animated fadeInLeft';
-	var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-	$("#form_result").css('visibility', 'visible');
-	$("#form_result").addClass(animationName).one(animationEnd, function(){
-		$(this).removeClass(animationName);
-	});
-	
+    formFadeIn($("#form_result"));
+
 	// Cancel form submission
 	return false;
 }
@@ -136,9 +138,6 @@ function checkValues()
 
 function checkValue(obj)
 {
-	var BORDER_INVALID = "3px solid #ff0000";
-	var BORDER_VALID = "1px solid #ff0000";
-
 	var value = Number(obj.value);
 	var minimum = getMinValue(obj);
 	if (minimum == null)
@@ -193,4 +192,16 @@ function convertUnitIfNeeded(obj)
 		obj.checked = true;
 		convert(null, obj);
 	}
+}
+
+function resetForm()
+{
+    formFadeOut("#form_result");
+
+    document.getElementById('input_ps').style.border  = BORDER_VALID;
+    document.getElementById('input_cas').style.border = BORDER_VALID;
+    document.getElementById('input_krs').style.border = BORDER_VALID;
+    document.getElementById('input_pm').style.border  = BORDER_VALID;
+    document.getElementById('input_cam').style.border = BORDER_VALID;
+    document.getElementById('input_krm').style.border = BORDER_VALID;
 }

@@ -6,21 +6,20 @@
 <link rel="stylesheet" type="text/css" href="css/submit.css" />
 <link rel="stylesheet" type="text/css" href="css/units.css" />
 <link rel="stylesheet" type="text/css" href="css/result.css" />
+<link rel="stylesheet" type="text/css" href="css/config.css" />
 <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
 <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.min.css">
 <script src="jquery/jquery-1.11.2.min.js"></script>
 <script src="jquery-ui/jquery-ui.min.js"></script>
 <script src="js/validation.js"></script> 
-<script src="js/calculation.js"></script> 
+<script src="js/calculation.js"></script>
+<script src="js/jqaction.js"></script>
 </head>
 <body>
 <div class="form-title">
 <fieldset>
 <span class="title_span" id="title_span">
 	<h2>Hallo TRP World</h2>
-</span>
-<span class="config_button_span" id="config_button_span">
-	<button id="config_button">Konfiguracja</button>
 </span>
 </fieldset>
 </div>
@@ -100,56 +99,29 @@
 </fieldset>
 </div>
 <div class="form-submit" id="form-submit">
-<fieldset>
-<input type="submit" value="Policz" id="policz_button"/>
-</fieldset>
-</div>
-<div class="form-result" id="form_result">
-	<fieldset><legend>Wynik</legend>
-		<span id="result_trp">&nbsp;</span>
-		<span id="result_cam_krm">&nbsp;</span>
-	</fieldset>
+    <fieldset>
+        <input type="submit" value=" Policz " id="policz_button"/>
+        <button type="reset" id="reset_button" onClick="resetForm()">Od nowa</button>
+        <button type="button" id="config_button">Konfiguracja</button>
+    </fieldset>
 </div>
 </form>
 <div id="dialog" title="Dialog">
 	<p>This is jQuery-ui dialog will be used to communicate problems and errors to the user .</p>
 	<p>Java Script code will populate the content</p>
 </div>
-<script>
-$(function() {
-	$("#dialog").dialog({
-		autoOpen: false,
-		modal: true,
-		dialogClass: "no-close",
-		buttons: [
-			{
-				text: "Ok",
-				icons: {
-				primary: "ui-icon-heart"
-			},
-			click: function() {
-				$( this ).dialog( "close" );}
-			}
-		]		
-	});
-	
-	$( "#config_button" ).button({
-		icons: {
-			primary: "ui-icon-gear",
-		},
-		text: false
-    });
-
-    $("#form_result").on("dblclick", function(){
-        var animationName = 'animated fadeOutLeft';
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        $(this).addClass(animationName).one(animationEnd, function(){
-            $(this).removeClass(animationName);
-            $(this).css('visibility', 'hidden');
-        });
-    });
-});
-</script>
+<div class="form-result" id="form_result">
+    <fieldset><legend>Wynik</legend>
+        <span id="result_trp">&nbsp;</span>
+        <span id="result_cam_krm">&nbsp;</span>
+    </fieldset>
+</div>
+<div class="form-config" id="form_config">
+    <fieldset><legend>Konfiguracja</legend>
+        <span id="result_trp">&nbsp;</span>
+        <span id="result_cam_krm">&nbsp;</span>
+    </fieldset>
+</div>
 </body>
 </html>
 
